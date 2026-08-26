@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@theme {
+
+  --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
+  --font-logo: "Manrope", "Figtree", sans-serif;
+
+  --color-fondo: #000000;
+  --color-texto: #ffffff;
+  --color-violeta: #c27aff;
+  --color-cian: #00bcff;
+
+  --color-elevado: color-mix(in srgb, var(--color-fondo) 91%, #ffffff);
+  --color-borde: color-mix(in srgb, var(--color-fondo) 84%, #ffffff);
+  --color-tenue: color-mix(in srgb, var(--color-texto) 55%, transparent);
+}
+
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--font-sans);
+}
+
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--color-cian);
+    outline-offset: 2px;
+  }
+}
+
+/*
+  Etiqueta pequeña para encabezados de sección
+*/
+@utility etiqueta {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
