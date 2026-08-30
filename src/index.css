@@ -13,6 +13,12 @@
   --color-elevado: color-mix(in srgb, var(--color-fondo) 91%, #ffffff);
   --color-borde: color-mix(in srgb, var(--color-fondo) 84%, #ffffff);
   --color-tenue: color-mix(in srgb, var(--color-texto) 55%, transparent);
+
+  --color-alerta: #ff5c7a;
+}
+
+:root {
+  color-scheme: dark;
 }
 
 body {

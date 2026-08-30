@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router'
 import { IconoEntrada, IconoGrafico } from './Iconos.jsx'
 
-const secciones = [
+const SECCIONES = [
   { a: '/', texto: 'Conciertos', Icono: IconoEntrada, exacta: true },
   { a: '/estadisticas', texto: 'Estadísticas', Icono: IconoGrafico },
 ]
@@ -40,7 +40,7 @@ function BarraLateral() {
       <p className="etiqueta px-5 pb-3 text-tenue">Secciones</p>
 
       <nav className="flex flex-col">
-        {secciones.map((seccion) => (
+        {SECCIONES.map((seccion) => (
           <EnlaceSeccion key={seccion.a} {...seccion} />
         ))}
       </nav>

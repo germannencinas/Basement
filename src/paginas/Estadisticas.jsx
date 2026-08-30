@@ -7,7 +7,7 @@ function Estadisticas() {
       <h1 className="mt-3 text-5xl font-bold tracking-tighter">Estadísticas</h1>
 
       <p className="mt-4 text-tenue">
-        Cuando tengas conciertos guardados, aquí verás tus estadísticas.
+        Cuando registres tus conciertos, aquí verás tus estadísticas.
       </p>
     </div>
   )
