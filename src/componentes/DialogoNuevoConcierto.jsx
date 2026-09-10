@@ -55,7 +55,6 @@ function DialogoNuevoConcierto({ abierto, alCerrar, alGuardar }) {
     
     setDatos((previos) => ({ ...previos, [campo]: valor }))
 
-    // Si el campo tenía un error, desaparece al coregir.
     setErrores((previos) => {
       if (!previos[campo]) return previos
       const copia = { ...previos }

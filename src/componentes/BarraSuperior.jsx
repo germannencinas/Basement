@@ -3,14 +3,12 @@ import { Link } from 'react-router'
 import Logo from './Logo.jsx'
 import DialogoNuevoConcierto from './DialogoNuevoConcierto.jsx'
 import { IconoMas } from './Iconos.jsx'
+import { useConciertos } from '../estado/contextoConciertos.js'
 
 function BarraSuperior() {
  
   const [dialogoAbierto, setDialogoAbierto] = useState(false)
-
-  function guardarConcierto(concierto) {
-    console.log('Concierto por guardar:', concierto)
-  }
+  const { anadirConcierto } = useConciertos()
 
   return (
     <header className="shrink-0">
@@ -38,7 +36,7 @@ function BarraSuperior() {
       <DialogoNuevoConcierto
         abierto={dialogoAbierto}
         alCerrar={() => setDialogoAbierto(false)}
-        alGuardar={guardarConcierto}
+        alGuardar={anadirConcierto}
       />
     </header>
   )

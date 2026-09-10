@@ -48,3 +48,16 @@ export function validarConcierto(datos) {
 
   return errores
 }
+
+/*
+  Convierte "2026-03-14" en "14 mar 2026".
+*/
+export function formatearFecha(fecha) {
+  const [ano, mes, dia] = fecha.split('-').map(Number)
+
+  return new Intl.DateTimeFormat('es', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  }).format(new Date(ano, mes - 1, dia))
+}
