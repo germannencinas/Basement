@@ -7,10 +7,20 @@ const CLAVE = 'basement.conciertos'
 function leerDelNavegador() {
   try {
     const guardado = localStorage.getItem(CLAVE)
-    return guardado ? JSON.parse(guardado) : []
+    return guardado ? migrar(JSON.parse(guardado)) : []
   } catch {
     return []
   }
+}
+
+
+function migrar(conciertos) {
+  return conciertos.map((concierto) => {
+    if (Array.isArray(concierto.bandas)) return concierto
+
+    const { banda, ...resto } = concierto
+    return { ...resto, bandas: banda ? [banda] : [] }
+  })
 }
 
 export function ProveedorConciertos({ children }) {
@@ -36,7 +46,7 @@ export function ProveedorConciertos({ children }) {
     despachar({ tipo: 'eliminar', id })
   }
 
-  
+
   return (
     <ContextoConciertos value={{ conciertos, anadirConcierto, eliminarConcierto }}>
       {children}

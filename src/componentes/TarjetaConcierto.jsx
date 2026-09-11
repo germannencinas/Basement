@@ -18,7 +18,7 @@ function TarjetaConcierto({ concierto }) {
 
       <span className="min-w-0 flex-1">
         <span className="block truncate font-semibold transition group-hover:text-cian">
-          {concierto.banda}
+          {concierto.bandas.join(', ')}
         </span>
         {detalle && (
           <span className="mt-0.5 block truncate text-sm text-tenue">{detalle}</span>

@@ -56,11 +56,28 @@ function DetalleConcierto() {
         {concierto.tipo === 'festival' ? 'Festival' : 'Concierto'}
       </p>
 
-      <h1 className="mt-3 text-5xl font-bold tracking-tighter">{concierto.banda}</h1>
+      {/*
+        El titulo es la banda cuando solo es una, pero si son varias se toma 
+        el nombre del evento
+      */}
+      <h1 className="mt-3 text-5xl font-bold tracking-tighter">
+        {concierto.bandas.length === 1 ? concierto.bandas[0] : concierto.nombre || 'Varias bandas'}
+      </h1>
 
       <div className="mt-10">
+        {/*
+          Esta fila solo aparece si hay varias bandas
+        */}
+        <Dato
+          etiqueta="Bandas"
+          valor={concierto.bandas.length > 1 ? concierto.bandas.join(' · ') : ''}
+        />
         <Dato etiqueta="Fecha" valor={formatearFecha(concierto.fecha)} />
-        <Dato etiqueta="Nombre del evento" valor={concierto.nombre} />
+        
+        <Dato
+          etiqueta="Nombre del evento"
+          valor={concierto.bandas.length === 1 ? concierto.nombre : ''}
+        />
         <Dato etiqueta="Lugar" valor={lugar} />
         <Dato
           etiqueta="Valoración"

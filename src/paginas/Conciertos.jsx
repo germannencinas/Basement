@@ -9,7 +9,10 @@ function Conciertos() {
   const { conciertos } = useConciertos()
 
   const ordenados = [...conciertos].sort((a, b) => b.fecha.localeCompare(a.fecha))
-  const bandas = new Set(conciertos.map((c) => c.banda.trim().toLowerCase()))
+  
+  const bandas = new Set(
+    conciertos.flatMap((c) => c.bandas).map((nombre) => nombre.trim().toLowerCase()),
+  )
   const ciudades = new Set(
     conciertos.map((c) => c.ciudad.trim().toLowerCase()).filter(Boolean),
   )

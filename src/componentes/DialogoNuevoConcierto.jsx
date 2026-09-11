@@ -12,6 +12,7 @@ import {
   RadioGroup,
   Radio,
 } from '@headlessui/react'
+import SelectorBandas from './SelectorBandas.jsx'
 import {
   CONCIERTO_VACIO,
   TIPOS,
@@ -126,14 +127,10 @@ function DialogoNuevoConcierto({ abierto, alCerrar, alGuardar }) {
               </RadioGroup>
             </Field>
 
-            <CampoTexto
-              etiqueta="Banda"
-              nombre="banda"
-              valor={datos.banda}
-              error={errores.banda}
-              alCambiar={cambiar}
-              placeholder="Turnstile"
-              autoFocus
+            <SelectorBandas
+              bandas={datos.bandas}
+              error={errores.bandas}
+              alCambiar={(nuevas) => cambiar('bandas', nuevas)}
             />
 
             <CampoTexto

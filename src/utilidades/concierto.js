@@ -6,7 +6,7 @@ export const TIPOS = [
 
 export const CONCIERTO_VACIO = {
   tipo: 'concierto',
-  banda: '',
+  bandas: [],
   fecha: '',
   nombre: '',
   venue: '',
@@ -27,8 +27,8 @@ export function fechaDeHoy() {
 export function validarConcierto(datos) {
   const errores = {}
 
-  if (!datos.banda.trim()) {
-    errores.banda = 'Escribe el nombre de la banda'
+  if (datos.bandas.length === 0) {
+    errores.bandas = 'Añade al menos una banda'
   }
 
   if (!datos.fecha) {
